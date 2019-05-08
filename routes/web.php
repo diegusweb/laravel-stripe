@@ -17,3 +17,9 @@ Route::get('/', function () {
 
 
 Route::post('/pago', 'SuscripcionController@pago');
+
+Route::get('/suscripcion', function () {
+    return view('suscripcion');
+});
+
+Route::post('/procesa-suscripcion', 'SuscripcionController@procesa_suscripcion');
