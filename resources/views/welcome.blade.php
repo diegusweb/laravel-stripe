@@ -79,21 +79,23 @@
                 </div>
             @endif
 
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
-                </div>
+                <div class="content">
+                    <h1>Compra de Prueba</h1>
+                    <h3>US$ 19.99</h3>
 
-                <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+                    <form action="/pago" method="POST">
+                        {{ csrf_field() }}
+                        <script
+                                src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                                data-key="{{ config('services.stripe.key') }}"
+                                data-amount="1990"
+                                data-name="Compra"
+                                data-description="Prueba compra"
+                                data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+                                data-locale="auto">
+                        </script>
+                    </form>
                 </div>
-            </div>
         </div>
     </body>
 </html>
